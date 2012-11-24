@@ -16,3 +16,46 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+case node['platform']
+when "ubuntu","debian"
+  package "exim4-daemon-light"
+end
+
+template "/etc/exim4/passwd.client" do
+  source "passwd.client.erb"
+  owner "root"
+  group "Debian-exim"
+  mode 0640
+  variables({
+    :smarthost_server => node[:exim4][:smarthost_server],
+    :smarthost_login => node[:exim4][:smarthost_login],
+    :smarthost_pwd => node[:exim4][:smarthost_pwd]
+  })
+end
+
+template "/etc/exim4/update-exim4.conf.conf" do
+  source "update-exim4.conf.conf.erb"
+  owner "root"
+  group "root"
+  mode 0644
+  variables({
+    :configtype => node[:exim4][:configtype],
+    :other_hostnames => node[:exim4][:other_hostnames],
+    :local_interfaces => node[:exim4][:local_interfaces],
+    :readhost => node[:exim4][:readhost],
+    :relay_domains => node[:exim4][:relay_domains],
+    :minimaldns => node[:exim4][:minimaldns],
+    :relay_nets => node[:exim4][:relay_nets],
+    :smarthost_server => node[:exim4][:smarthost_server],
+    :use_split_config => node[:exim4][:use_split_config],
+    :hide_mailname => node[:exim4][:hide_mailname],
+    :mailname_in_oh => node[:exim4][:mailname_in_oh],
+    :localdelivery => node[:exim4][:localdelivery]
+  })
+  notifies :run, "execute[update-exim4.conf]", :immediately
+end
+
+execute "update-exim4.conf" do
+  action :nothing
+end
