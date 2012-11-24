@@ -1,10 +1,10 @@
-# CHANGELOG for exim4
+# CHANGELOG for exim4-light
 
-This file is used to list changes made in each version of exim4.
+This file is used to list changes made in each version of exim4-light.
 
 ## 0.1.0:
 
-* Initial release of exim4
+* Initial release of exim4-light
 
 - - - 
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
