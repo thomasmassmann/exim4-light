@@ -22,6 +22,14 @@ when "ubuntu","debian"
   package "exim4-daemon-light"
 end
 
+template "/etc/mailname" do
+  source "mailname.erb"
+  owner "root"
+  group "root"
+  mode 0644
+  notifies :run, "execute[update-exim4.conf]"
+end
+
 template "/etc/exim4/passwd.client" do
   source "passwd.client.erb"
   owner "root"
@@ -53,7 +61,7 @@ template "/etc/exim4/update-exim4.conf.conf" do
     :mailname_in_oh => node[:exim4][:mailname_in_oh],
     :localdelivery => node[:exim4][:localdelivery]
   })
-  notifies :run, "execute[update-exim4.conf]", :immediately
+  notifies :run, "execute[update-exim4.conf]"
 end
 
 execute "update-exim4.conf" do
