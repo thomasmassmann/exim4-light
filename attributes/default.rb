@@ -19,13 +19,23 @@
 # limitations under the License.
 #
 
+# General attributes
+case node['platform']
+when "ubuntu","debian"
+  default[:exim4][:user]             = 'Debian-exim'
+when "redhat","centos","fedora","scientific","amazon"
+  default[:exim4][:user]             = 'root'
+else
+  default[:exim4][:user]             = 'root'
+end
+
 # passwd.client attributes
-default[:exim4][:smarthost_server]  = 'localhost'
+default[:exim4][:smarthost_server]  = ''
 default[:exim4][:smarthost_login]   = ''
 default[:exim4][:smarthost_pwd]     = ''
 
 # update-exim4.conf attributes
-default[:exim4][:configtype]        = 'internet'
+default[:exim4][:configtype]        = 'none'
 default[:exim4][:other_hostnames]   = ''
 default[:exim4][:local_interfaces]  = '127.0.0.1'
 default[:exim4][:readhost]          = ''

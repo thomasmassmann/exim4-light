@@ -25,7 +25,7 @@ end
 template "/etc/exim4/passwd.client" do
   source "passwd.client.erb"
   owner "root"
-  group "Debian-exim"
+  group node[:exim4][:user]
   mode 0640
   variables({
     :smarthost_server => node[:exim4][:smarthost_server],
