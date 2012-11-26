@@ -61,6 +61,10 @@ See `attributes/default.rb` for default values.
 Usage
 =====
 
+Include the `recipe[exim4-light]` in your node or role runlist. By default
+exim4 will be unconfigured. Set at least the `node['exim4']['configtype']`.
+
+
 License and Author
 ==================
 
