@@ -29,11 +29,6 @@ else
   default[:exim4][:user]             = 'root'
 end
 
-# passwd.client attributes
-default[:exim4][:smarthost_server]  = ''
-default[:exim4][:smarthost_login]   = ''
-default[:exim4][:smarthost_pwd]     = ''
-
 # update-exim4.conf attributes
 default[:exim4][:configtype]        = 'none'
 default[:exim4][:other_hostnames]   = ''
@@ -46,3 +41,8 @@ default[:exim4][:use_split_config]  = false
 default[:exim4][:hide_mailname]     = false
 default[:exim4][:mailname_in_oh]    = true
 default[:exim4][:localdelivery]     = 'maildir_home'
+
+# passwd.client attributes
+default[:exim4][:smarthost_server]  = ''
+default[:exim4][:smarthost_login]   = ''
+default[:exim4][:smarthost_pwd]     = ''
