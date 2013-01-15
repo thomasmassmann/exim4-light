@@ -44,5 +44,6 @@ default[:exim4][:localdelivery]     = 'maildir_home'
 
 # passwd.client attributes
 default[:exim4][:smarthost_server]  = ''
+default[:exim4][:smarthost_port]  	= ''
 default[:exim4][:smarthost_login]   = ''
 default[:exim4][:smarthost_pwd]     = ''

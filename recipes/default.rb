@@ -56,6 +56,7 @@ template "/etc/exim4/update-exim4.conf.conf" do
     :minimaldns => node[:exim4][:minimaldns],
     :relay_nets => node[:exim4][:relay_nets],
     :smarthost_server => node[:exim4][:smarthost_server],
+    :smarthost_port => node[:exim4][:smarthost_port],
     :use_split_config => node[:exim4][:use_split_config],
     :hide_mailname => node[:exim4][:hide_mailname],
     :mailname_in_oh => node[:exim4][:mailname_in_oh],
