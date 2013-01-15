@@ -48,11 +48,13 @@ See `attributes/default.rb` for default values.
   delivery to `~/Maildir/`.
 * `node['exim4']['smarthost_server']`- Server to which all outgoing
   mail is passed to and that takes care of delivering it. All deliveries go
-  out to TCP port 25 unless a different port is specified after the host name,
-  separated from the host name by two colons. Colons in IPv6 addresses need to
-  be doubled. If a port number follows, IP addresses may be enclosed in
-  brackets, which might be the only possibility to specify delivery to an
-  IPv6 address and a different port.
+  out to TCP port 25 unless a different port is specified (use
+  `smarthost_port`). Colons in IPv6 addresses need to be doubled. If a port
+  number follows, IP addresses may be enclosed in brackets, which might be
+  the only possibility to specify delivery to an IPv6 address and a different
+  port.
+* `node['exim4'][smarthost_port]` - TCP port for the mail server. If no port
+  is given exim uses 25 by default.
 * `node['exim4']['smarthost_login']`- Login used for the smarthost.
 * `node['exim4']['smarthost_pwd']`- Password used for the smarthost.
 
@@ -69,7 +71,7 @@ License and Author
 
 Author:: Thomas Massmann <thomas.massmann@inqbus.de>
 
-Copyright:: 2012, Inqbus
+Copyright:: 2012-2013, Inqbus
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -3,7 +3,7 @@ maintainer_email  "thomas.massmann@inqbus.de"
 license           "Apache v2.0"
 description       "Installs and configures exim4-light."
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           "0.1.0"
+version           "0.1.1"
 
 
 recipe "exim4-light", "Installs and configures exim4 for client or outbound relayhost."
@@ -67,7 +67,12 @@ attribute "exim4/localdelivery",
 
 attribute "exim4/smarthost_server",
   :display_name => "smarthost_server",
-  :description => "Server to which all outgoing mail is passed to and that takes care of delivering it. All deliveries go out to TCP port 25 unless a different port is specified after the host name, separated from the host name by two colons. Colons in IPv6 addresses need to be doubled. If a port number follows, IP addresses may be enclosed in brackets, which might be the only possibility to specify delivery to an IPv6 address and a different port.",
+  :description => "Server to which all outgoing mail is passed to and that takes care of delivering it. All deliveries go out to TCP port 25 unless a different port is specified (use 'smarthost_port'). Colons in IPv6 addresses need to be doubled. If a port number follows, IP addresses may be enclosed in brackets, which might be the only possibility to specify delivery to an IPv6 address and a different port.",
+  :default => ""
+
+attribute "exim4/smarthost_port",
+  :display_name => "smarthost_port",
+  :description => "TCP port for the mail server. If no port is given exim uses 25 by default.",
   :default => ""
 
 attribute "exim4/smarthost_login",
