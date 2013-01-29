@@ -30,6 +30,15 @@ template "/etc/mailname" do
   notifies :run, "execute[update-exim4.conf]"
 end
 
+if node[:exim4][:encrypted][:enabled]
+  encrypted = Chef::EncryptedDataBagItem.load(node[:exim4][:encrypted][:bag], node[:exim4][:encrypted][:item])
+  login = encrypted["smarthost_login"]
+  pwd = encrypted["smarthost_pwd"]
+else
+  login = node[:exim4][:smarthost_login]
+  pwd = node[:exim4][:smarthost_pwd]
+end
+
 template "/etc/exim4/passwd.client" do
   source "passwd.client.erb"
   owner "root"
@@ -37,8 +46,8 @@ template "/etc/exim4/passwd.client" do
   mode 0640
   variables({
     :smarthost_server => node[:exim4][:smarthost_server],
-    :smarthost_login => node[:exim4][:smarthost_login],
-    :smarthost_pwd => node[:exim4][:smarthost_pwd]
+    :smarthost_login => login,
+    :smarthost_pwd => pwd
   })
 end
 

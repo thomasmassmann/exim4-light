@@ -47,3 +47,7 @@ default[:exim4][:smarthost_server]  = ''
 default[:exim4][:smarthost_port]    = ''
 default[:exim4][:smarthost_login]   = ''
 default[:exim4][:smarthost_pwd]     = ''
+
+default[:exim4][:encrypted][:enabled] = false
+default[:exim4][:encrypted][:bag]     = nil
+default[:exim4][:encrypted][:item]    = nil
