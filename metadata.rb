@@ -6,6 +6,9 @@ description       "Installs and configures exim4-light."
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version           "0.1.2"
 
+%w{ debian ubuntu }.each do |os|
+  supports os
+end
 
 recipe "exim4-light", "Installs and configures exim4 for client or outbound relayhost."
 
