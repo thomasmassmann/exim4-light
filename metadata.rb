@@ -1,3 +1,4 @@
+name              "exim4-light"
 maintainer        "Inqbus"
 maintainer_email  "thomas.massmann@inqbus.de"
 license           "Apache v2.0"

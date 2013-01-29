@@ -20,7 +20,7 @@
 #
 
 # General attributes
-case node['platform']
+case node[:platform]
 when "ubuntu","debian"
   default[:exim4][:user]             = 'Debian-exim'
 when "redhat","centos","fedora","scientific","amazon"

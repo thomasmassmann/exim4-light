@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-case node['platform']
+case node[:platform]
 when "ubuntu","debian"
   package "exim4-daemon-light"
 end
