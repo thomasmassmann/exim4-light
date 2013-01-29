@@ -1,3 +1,1 @@
-cookbook "exim4-light" do
-
-end
+cookbook "exim4-light"
