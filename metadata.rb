@@ -3,7 +3,7 @@ maintainer_email  "thomas.massmann@inqbus.de"
 license           "Apache v2.0"
 description       "Installs and configures exim4-light."
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           "0.1.1"
+version           "0.1.2"
 
 
 recipe "exim4-light", "Installs and configures exim4 for client or outbound relayhost."
