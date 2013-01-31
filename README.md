@@ -57,6 +57,10 @@ See `attributes/default.rb` for default values.
   is given exim uses 25 by default.
 * `node['exim4']['smarthost_login']`- Login used for the smarthost.
 * `node['exim4']['smarthost_pwd']`- Password used for the smarthost.
+* `node['exim4']['encrypted']['enabled']`- Enable usage of encrypted data bag
+  for smarthost credentials.
+* `node['exim4']['encrypted']['bag']`- Name of the encrypted data bag.
+* `node['exim4']['encrypted']['item']`- Name of the encrypted data bag item.
 
 
 Usage
@@ -64,6 +68,10 @@ Usage
 
 Include the `recipe[exim4-light]` in your node or role runlist. By default
 exim4 will be unconfigured. Set at least the `node['exim4']['configtype']`.
+
+It is recommended to use an encrypted data bag to store your credentials. To
+enable this feature, set `node['exim4']['encrypted']['enabled']` to `true` and
+set the data bag and item names accordingly.
 
 
 License and Author

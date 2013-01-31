@@ -88,3 +88,18 @@ attribute "exim4/smarthost_pwd",
   :display_name => "smarthost_pwd",
   :description => "Password used for the smarthost",
   :default => ""
+
+attribute "exim4/encrypted/enabled",
+  :display_name => "Use encrypted data bag",
+  :description => "Enable usage of encrypted data bag for smarthost credentials.",
+  :default => "false"
+
+attribute "exim4/encrypted/bag",
+  :display_name => "Encrypted data bag name",
+  :description => "Name of the encrypted data bag.",
+  :default => ""
+
+attribute "exim4/encrypted/item",
+  :display_name => "Encrypted data bag item",
+  :description => "Name of the encrypted data bag item.",
+  :default => ""
