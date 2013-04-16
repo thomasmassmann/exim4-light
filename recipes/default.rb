@@ -45,7 +45,7 @@ template "/etc/exim4/passwd.client" do
   group node[:exim4][:user]
   mode 0640
   variables({
-    :smarthost_server => node[:exim4][:smarthost_server],
+    :smarthost_server => (node[:exim4][:smarthost_auth_server] || node[:exim4][:smarthost_server]),
     :smarthost_login => login,
     :smarthost_pwd => pwd
   })
