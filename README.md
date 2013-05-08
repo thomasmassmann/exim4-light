@@ -3,6 +3,8 @@ Description
 
 This cookbook installs and configures exim4 for client or outbound relayhost.
 
+[![Build Status](https://secure.travis-ci.org/tmassman/exim4-light.png)](http://travis-ci.org/tmassman/exim4-light)
+
 Requirements
 ============
 
