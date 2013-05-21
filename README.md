@@ -81,7 +81,7 @@ License and Author
 
 Author:: Thomas Massmann <thomas.massmann@inqbus.de>
 
-Copyright:: 2012-2013, Inqbus
+Copyright:: 2012-2013, Thomas Massmann
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
