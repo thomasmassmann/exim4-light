@@ -69,7 +69,8 @@ template "/etc/exim4/update-exim4.conf.conf" do
     :use_split_config => node[:exim4][:use_split_config],
     :hide_mailname => node[:exim4][:hide_mailname],
     :mailname_in_oh => node[:exim4][:mailname_in_oh],
-    :localdelivery => node[:exim4][:localdelivery]
+    :localdelivery => node[:exim4][:localdelivery],
+    :other_options => node[:exim4][:other_options]
   })
   notifies :run, "execute[update-exim4.conf]"
 end

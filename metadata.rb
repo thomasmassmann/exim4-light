@@ -4,7 +4,7 @@ maintainer_email  "thomas.massmann@inqbus.de"
 license           "Apache v2.0"
 description       "Installs and configures exim4-light."
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           "0.1.2"
+version           "0.1.3"
 
 %w{ debian ubuntu }.each do |os|
   supports os
@@ -68,6 +68,11 @@ attribute "exim4/localdelivery",
   :display_name => "localdelivery",
   :description => "Name of the default transport for local mail delivery. Defaults to mail_spool if unset, use maildir_home for delivery to '~/Maildir/'.",
   :default => "maildir_home"
+
+attribute "exim4/other_options",
+  :display_name => "other_options",
+  :description => "Hash of other options. Default none.",
+  :default => {}
 
 attribute "exim4/smarthost_server",
   :display_name => "smarthost_server",
