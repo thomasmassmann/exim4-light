@@ -41,7 +41,7 @@ default[:exim4][:use_split_config]  = false
 default[:exim4][:hide_mailname]     = false
 default[:exim4][:mailname_in_oh]    = true
 default[:exim4][:localdelivery]     = 'maildir_home'
-default[:exim4][:other_options]		= {}
+default[:exim4][:other_options]     = {}
 
 # passwd.client attributes
 default[:exim4][:smarthost_server]  = ''
