@@ -31,7 +31,7 @@ dc_use_split_config='<%= @use_split_config %>'
 dc_hide_mailname='<%= @hide_mailname %>'
 dc_mailname_in_oh='<%= @mailname_in_oh %>'
 dc_localdelivery='<%= @localdelivery %>'
-<% if !@other_options.empy? %>
+<% if !@other_options.empty? %>
 <% @other_options.each do |option,value| %>
 <%= option %>='<%= value %>'
 <% end %>
