@@ -63,6 +63,7 @@ See `attributes/default.rb` for default values.
   for smarthost credentials.
 * `node['exim4']['encrypted']['bag']`- Name of the encrypted data bag.
 * `node['exim4']['encrypted']['item']`- Name of the encrypted data bag item.
+* `node['exim4']['other_options']` - Hash of other options for update-exim4.conf.conf.
 
 
 Usage

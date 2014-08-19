@@ -10,3 +10,10 @@ script:
 branches:
   only:
     - master
+matrix:
+  include:
+  - rvm: 1.9.2
+    gemfile: test/support/Gemfile.1.9.2
+  exclude:
+  - rvm: 1.9.2
+    gemfile: test/support/Gemfile
