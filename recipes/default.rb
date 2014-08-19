@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-case node[:platform]
+case node['platform']
 when "ubuntu","debian"
   package "exim4-daemon-light"
 end
@@ -30,22 +30,22 @@ template "/etc/mailname" do
   notifies :run, "execute[update-exim4.conf]"
 end
 
-if node[:exim4][:encrypted][:enabled]
-  encrypted = Chef::EncryptedDataBagItem.load(node[:exim4][:encrypted][:bag], node[:exim4][:encrypted][:item])
+if node['exim4']['encrypted']['enabled']
+  encrypted = Chef::EncryptedDataBagItem.load(node['exim4']['encrypted']['bag'], node['exim4']['encrypted']['item'])
   login = encrypted["smarthost_login"]
   pwd = encrypted["smarthost_pwd"]
 else
-  login = node[:exim4][:smarthost_login]
-  pwd = node[:exim4][:smarthost_pwd]
+  login = node['exim4']['smarthost_login']
+  pwd = node['exim4']['smarthost_pwd']
 end
 
 template "/etc/exim4/passwd.client" do
   source "passwd.client.erb"
   owner "root"
-  group node[:exim4][:user]
+  group node['exim4']['user']
   mode 0640
   variables({
-    :smarthost_server => (node[:exim4][:smarthost_auth_server] || node[:exim4][:smarthost_server]),
+    :smarthost_server => (node['exim4']['smarthost_auth_server'] || node['exim4']['smarthost_server']),
     :smarthost_login => login,
     :smarthost_pwd => pwd
   })
@@ -57,20 +57,20 @@ template "/etc/exim4/update-exim4.conf.conf" do
   group "root"
   mode 0644
   variables({
-    :configtype => node[:exim4][:configtype],
-    :other_hostnames => node[:exim4][:other_hostnames],
-    :local_interfaces => node[:exim4][:local_interfaces],
-    :readhost => node[:exim4][:readhost],
-    :relay_domains => node[:exim4][:relay_domains],
-    :minimaldns => node[:exim4][:minimaldns],
-    :relay_nets => node[:exim4][:relay_nets],
-    :smarthost_server => node[:exim4][:smarthost_server],
-    :smarthost_port => node[:exim4][:smarthost_port],
-    :use_split_config => node[:exim4][:use_split_config],
-    :hide_mailname => node[:exim4][:hide_mailname],
-    :mailname_in_oh => node[:exim4][:mailname_in_oh],
-    :localdelivery => node[:exim4][:localdelivery],
-    :other_options => node[:exim4][:other_options]
+    :configtype => node['exim4']['configtype'],
+    :other_hostnames => node['exim4']['other_hostnames'],
+    :local_interfaces => node['exim4']['local_interfaces'],
+    :readhost => node['exim4']['readhost'],
+    :relay_domains => node['exim4']['relay_domains'],
+    :minimaldns => node['exim4']['minimaldns'],
+    :relay_nets => node['exim4']['relay_nets'],
+    :smarthost_server => node['exim4']['smarthost_server'],
+    :smarthost_port => node['exim4']['smarthost_port'],
+    :use_split_config => node['exim4']['use_split_config'],
+    :hide_mailname => node['exim4']['hide_mailname'],
+    :mailname_in_oh => node['exim4']['mailname_in_oh'],
+    :localdelivery => node['exim4']['localdelivery'],
+    :other_options => node['exim4']['other_options']
   })
   notifies :run, "execute[update-exim4.conf]"
 end
