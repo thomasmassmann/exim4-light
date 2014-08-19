@@ -16,3 +16,8 @@ This file is used to list changes made in each version of exim4-light.
 * Fixed some minor syntax errors.
 * Added basic kitchen tests.
 * You can now use encrypted data bags for your credentials.
+
+## 0.1.3
+
+* Added ability to add other options to update-exim4.conf.conf.
+  Thanks to [cyberflow](https://github.com/cyberflow)
