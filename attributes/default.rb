@@ -34,6 +34,7 @@ default['exim4']['configtype']        = 'none'
 default['exim4']['other_hostnames']   = ''
 default['exim4']['local_interfaces']  = '127.0.0.1'
 default['exim4']['readhost']          = node['fqdn']
+default['exim4']['mailname']          = node['fqdn']
 default['exim4']['relay_domains']     = ''
 default['exim4']['minimaldns']        = false
 default['exim4']['relay_nets']        = ''
