@@ -39,6 +39,11 @@ attribute "exim4/readhost",
   :description => "For 'smarthost' and 'satellite' it is possible to hide the local mailname in the headers of outgoing mail and replace it with this value instead, using rewriting.",
   :default => "fqdn"
 
+attribute "exim4/mailname",
+  :display_name => "mailname",
+  :description => "The visible mail name of the system (see also /etc/mailname)",
+  :default => "fqdn"
+
 attribute "exim4/relay_domains",
   :display_name => "relay_domains",
   :description => "Is a list of domains for which we accept mail from anywhere on the Internet but which are not delivered locally, e.g. because this machine serves as secondary MX for these domains.",

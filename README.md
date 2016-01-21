@@ -30,6 +30,8 @@ See `attributes/default.rb` for default values.
 * `node['exim4']['readhost']`- For `smarthost` and `satellite` it is possible
   to hide the local mailname in the headers of outgoing mail and replace it
   with this value instead, using rewriting.
+* `node['exim4']['mailname']`- The visible mail name of the system (see also
+  /etc/mailname).
 * `node['exim4']['relay_domains']`- Is a list of domains for which we accept
   mail from anywhere on the Internet but which are not delivered locally, e.g.
   because this machine serves as secondary MX for these domains.
