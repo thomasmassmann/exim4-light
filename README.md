@@ -57,7 +57,7 @@ See `attributes/default.rb` for default values.
   number follows, IP addresses may be enclosed in brackets, which might be
   the only possibility to specify delivery to an IPv6 address and a different
   port.
-* `node['exim4'][smarthost_port]` - TCP port for the mail server. If no port
+* `node['exim4']['smarthost_port']` - TCP port for the mail server. If no port
   is given exim uses 25 by default.
 * `node['exim4']['smarthost_login']`- Login used for the smarthost.
 * `node['exim4']['smarthost_pwd']`- Password used for the smarthost.
